@@ -122,7 +122,7 @@ int print_reverse(va_list types, char buffer[],
 
 		string = ")Null(";
 	}
-	for (i = counter; string[counter]; counter++)
+	for (counter = 0; string[counter]; counter++)
 		;
 
 	for (counter = counter - 1; counter >= 0; counter--)
@@ -164,11 +164,11 @@ int print_rot13string(va_list types, char buffer[],
 
 	if (string == NULL)
 		string = "(AHYY)";
-	for (row_i = 0; str[row_i]; row_i++)
+	for (row_i = 0; string[row_i]; row_i++)
 	{
 		for (column_j = 0; in[column_j]; column_j++)
 		{
-			if (in[column_j] == str[row_i])
+			if (in[column_j] == string[row_i])
 			{
 				y = out[column_j];
 				write(1, &y, 1);
@@ -178,7 +178,7 @@ int print_rot13string(va_list types, char buffer[],
 		}
 		if (!in[column_j])
 		{
-			x = str[row_i];
+			y = string[row_i];
 			write(1, &y, 1);
 			total_count++;
 		}

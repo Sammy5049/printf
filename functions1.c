@@ -56,7 +56,7 @@ int print_octal(va_list types, char buffer[],
 
 	UNUSED(width);
 
-	num = convert_size_unsgnd(number, size);
+	number = convert_size_unsgnd(number, size);
 
 	if (number == 0)
 		buffer[counter--] = '0';
@@ -131,7 +131,7 @@ int print_hexa(va_list types, char map_to[], char buffer[],
 		int flags, char flag_ch, int width, int precision, int size)
 {
 	int counter = BUFF_SIZE - 2;
-	unsigned long int num = va_arg(types, unsigned long int);
+	unsigned long int number = va_arg(types, unsigned long int);
 	unsigned long int init_num = number;
 
 	UNUSED(width);
